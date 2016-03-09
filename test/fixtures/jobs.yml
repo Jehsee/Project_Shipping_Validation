@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  boat_id: 
+  ctn_need: 1
+  cargo: MyText
+  origin: MyString
+  cost: 9.99
+  destination: MyString
+
+two:
+  boat_id: 
+  ctn_need: 1
+  cargo: MyText
+  origin: MyString
+  cost: 9.99
+  destination: MyString
