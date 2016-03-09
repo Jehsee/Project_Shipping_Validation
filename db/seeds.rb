@@ -6,9 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# users = [
-#   [""]
-# ]
+users = [
+  ["a@a.com", "aaaaaaaa", "aaaaaaaa"],
+  ["b@b.com", "bbbbbbbb", "bbbbbbbb"],
+  ["c@c.com", "cccccccc", "cccccccc"],
+  ["d@d.com", "dddddddd", "dddddddd"]
+]
+
+users.each do | a, b, c |
+  User.create!(email: a, password: b, password_confirmation: c)
+end
 
 #seed profiles
 
