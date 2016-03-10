@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :boats
 
+
   after_create do
     Profile.create(user_id: self.id)
   end
