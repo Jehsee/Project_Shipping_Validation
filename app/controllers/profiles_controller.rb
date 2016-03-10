@@ -1,11 +1,17 @@
 class ProfilesController < ApplicationController
   def index
+    if !user_signed_in?
+      redirect_to "/"
+    end
   end
 
   def create
   end
 
   def show
+    if !user_signed_in?
+      redirect_to "/"
+    end
     @profile = Profile.where(user_id: params[:id]).first
 
   end
@@ -14,6 +20,15 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    if !user_signed_in?
+      redirect_to "/"
+    end
+  end
+
+  def edit
+    if !user_signed_in?
+      redirect_to "/"
+    end
   end
 
   def update

@@ -1,15 +1,24 @@
 class JobsController < ApplicationController
 
   def index
+    if !user_signed_in?
+      redirect_to "/"
+    end
     @jobs = Job.all
   end
 
   def show
+    if !user_signed_in?
+      redirect_to "/"
+    end
     @job = Job.find(params[:id])
     @boats = Boat.where(user_id: current_user.id)
   end
 
   def new
+    if !user_signed_in?
+      redirect_to "/"
+    end
     @job = Job.new
   end
 
@@ -27,6 +36,9 @@ class JobsController < ApplicationController
   end
 
   def edit
+    if !user_signed_in?
+      redirect_to "/"
+    end
     @job = Job.find(params[:id])
 
   end
