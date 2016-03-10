@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :boats
 
-  def full_name
-    "#{fname} #{lname}"
+  after_create do
+    Profile.create(user_id: self.id)
   end
 end

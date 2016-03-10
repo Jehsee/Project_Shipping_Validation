@@ -1,0 +1,10 @@
+boats index page <br/>
+
+<%= @boats.each do |b| %>
+  <%= b.name %>
+    <br/>
+  <%= b.capacity %>
+    <br/>
+  <%= b.cur_loc %>
+    <br/>
+<% end %>

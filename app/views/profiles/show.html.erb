@@ -1,0 +1,19 @@
+<h1>Profile Page</h1>
+
+<%= link_to("Add Boat", new_boat_path, method: :get) %>
+
+<h3>List of registered boats for <%= @profile.id %></h3>
+<% if @profile.user.boats %>
+  <ul>
+    <% @profile.user.boats.each do |b| %>
+      <li> <%= b.name %> </li>
+      <li> <%= b.capacity %> </li>
+      <li> <%= b.cur_loc %> </li>
+        <ol>
+          <% b.jobs.each do |j| %>
+            <li> <%= link_to("#{j.name}", job_path(j.id), method: :get) %> </li>
+          <% end %>
+        </ol>
+    <% end %>
+  </ul>
+<% end %>
