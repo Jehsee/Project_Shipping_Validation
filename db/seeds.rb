@@ -50,7 +50,8 @@ end
 #jobs seed
 
 jobs = [
-  ["Bring Tractors from NY to LA", 150, "Tractors", "New York", 100000, "Los Angeles"]
+  ["Tractors from NY to LA", 150, "Tractors", "New York", 100000, "Los Angeles"],
+  ["Shoes from NY to LA", 75, "Shoes", "New York", 15000, "Los Angeles"]
 ]
 
 jobs.each do | a, b, c, d, e, f |

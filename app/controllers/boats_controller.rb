@@ -36,6 +36,20 @@ class BoatsController < ApplicationController
     end
   end
 
+  def destroy
+    @boat = Boat.find(params[:id])
+    
+    #nillify boat_id field from jobs assigned to his boat
+    @boat.jobs.each do |j|
+      j.boat_id = nil
+      j.save
+    end
+
+    @boat.destroy
+    @profie = Profile.find(user_id: current_user.id)
+    redirect_to(profile_path(@profile.id))
+  end
+
 
 
   private
