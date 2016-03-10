@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  
+
   def index
     @jobs = Job.all
   end
@@ -63,6 +63,6 @@ class JobsController < ApplicationController
 
   private
   def job_params
-    params.require(:job).permit(:boat_id, :ctn_need, :cargo, :origin, :cost, :destination)
+    params.require(:job).permit(:boat_id, :ctn_need, :cargo, :origin, :cost, :destination, :name)
   end
 end

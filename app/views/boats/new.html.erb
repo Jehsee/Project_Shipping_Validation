@@ -1,9 +1,9 @@
 <h1>Boat Application</h1>
 <% if @boat.errors.full_messages.any? %>
-        <% @boat.errors.full_messages.each do |error_message| %><br/>
-        <%= error_message %>
-        <% end %>
-      <% end %>
+  <% @boat.errors.full_messages.each do |error_message| %><br/>
+    <%= error_message %>
+  <% end %>
+<% end %>
 
 <%= form_for @boat do |f| %>
   <%= f.label :name, "Boat Name:" %>

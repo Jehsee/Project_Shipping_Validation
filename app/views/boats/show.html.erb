@@ -4,4 +4,4 @@
   <%= @boat.capacity %>
   <%= @boat.cur_loc %>
 
-<%= link_to("Back to Profile", profile_path) %>
+<%= link_to("Back to Profile", profile_path(@boat.user.id), method: :get) %>

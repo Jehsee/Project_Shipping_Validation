@@ -1,20 +1,29 @@
 <h1>NEW JOB</h1>
+<% if @job.errors.full_messages.any? %>
+  <% @job.errors.full_messages.each do |error_message| %><br/>
+    <%= error_message %>
+  <% end %>
+<% end %>
 
 <%= form_for @job do |j| %>
 
-  <%= j.label "JOB NAME:" %>
-  <%= j.string :name %>
+  <%= j.label "JOB NAME:" %><br>
+  <%= j.text_field :name %><br><br>
 
-  <%= j.label "CAPACITY REQUIRED:" %>
-  <%= j.integer :ctn_need %>
+  <%= j.label "CAPACITY REQUIRED:" %><br>
+  <%= j.number_field :ctn_need %><br><br>
 
-  <%= j.label "ORIGIN:" %>
-  <%= j.string :origin %>
+  <%= j.label "ORIGIN:" %><br>
+  <%= j.text_field :origin %><br><br>
 
-  <%= j.label "DESTINATION" %>
-  <%= j.string :destination %>
+  <%= j.label "DESTINATION:" %><br>
+  <%= j.text_field :destination %><br><br>
 
-  <%= j.label "CARGO" %>
-  <%= j.text :cargo %>
+  <%= j.label "CARGO DESCRIPTION:" %><br>
+  <%= j.text_field :cargo %><br><br>
 
-<%= j.submit "CREATE NEW JOB" %>
+  <%= j.label "COST:" %><br>
+  <%= j.number_field :cost %><br><br>
+
+  <%= j.submit :create, value: "CREATE NEW JOB" %>
+<% end %>
