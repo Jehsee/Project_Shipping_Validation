@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :boats
   resources :jobs
 
+  get "/assigned" => "jobs#assigned"
+  get "/unassigned" => "jobs#unassigned"
+  put "/assign_job/:id" => "jobs#assign_job"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

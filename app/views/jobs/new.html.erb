@@ -1,0 +1,20 @@
+<h1>NEW JOB</h1>
+
+<%= form_for @job do |j| %>
+
+  <%= j.label "JOB NAME:" %>
+  <%= j.string :name %>
+
+  <%= j.label "CAPACITY REQUIRED:" %>
+  <%= j.integer :ctn_need %>
+
+  <%= j.label "ORIGIN:" %>
+  <%= j.string :origin %>
+
+  <%= j.label "DESTINATION" %>
+  <%= j.string :destination %>
+
+  <%= j.label "CARGO" %>
+  <%= j.text :cargo %>
+
+<%= j.submit "CREATE NEW JOB" %>

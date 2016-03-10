@@ -1,0 +1,7 @@
+<h1>LIST OF ALL JOBS</h1>
+
+<ul>
+  <% @jobs.each do |j| %>
+    <li><%= link_to("#{j.name}", job_path(j.id), method: :get) %> (<%= j.assignment_status %>)</li>
+  <% end %>
+</ul>
