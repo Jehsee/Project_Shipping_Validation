@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= flash[:info] if flash[:info] %>
-<%= yield %>
+
+<nav id="main_nav">
+  <ul>
+    <% if user_signed_in? %>
+
+      <li><%= myProfileLink %></li>
+      <li><%= jobsLink %></li>
+      <li><%= logoutLink %></li>
+      
+    <% end %>
+  </ul>
+</nav>
+
+<div id="main_div">  
+  <%= flash[:info] if flash[:info] %>
+  <%= yield %>
+</div>
 
 </body>
 </html>
