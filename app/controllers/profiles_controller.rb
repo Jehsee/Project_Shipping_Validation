@@ -28,8 +28,18 @@ class ProfilesController < ApplicationController
     if !user_signed_in?
       redirect_to "/"
     end
+    @profile = Profile.find(params[:id])
   end
 
   def update
+    @profile = Profile.find(params[:id])
+    @profile.update(profile_params)
+    flash[:info] = "Profile Edited Successfully"
+    redirect_to :back
+  end
+
+  private
+  def profile_params
+    params.require(:profile).permit(:user_id, :fname, :lname, :username)
   end
 end

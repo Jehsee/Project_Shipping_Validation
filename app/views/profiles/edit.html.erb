@@ -1,0 +1,19 @@
+<h1>Edit Profile Page</h1>
+
+<%= form_for @profile do |f| %>
+  <%= f.label :username, "Username:" %>
+  <%= f.text_field :username %><br><br>
+  <%= f.label :fname, "First Name:" %>
+  <%= f.text_field :fname %><br><br>
+  <%= f.label :lname, "Last Name:" %>
+  <%= f.text_field :lname %><br>
+  <%= f.submit("Edit") %>
+<% end %>
+
+<br>
+
+<%= form_for @profile, :url => profiles_path,
+:html => { :multipart => true } do |form| %>
+ <%= form.file_field :avatar %><br>
+ <%= form.submit("submit") %>
+<% end %>
