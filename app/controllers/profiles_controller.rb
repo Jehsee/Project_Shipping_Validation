@@ -13,7 +13,6 @@ class ProfilesController < ApplicationController
       redirect_to "/"
     end
     @profile = Profile.where(user_id: params[:id]).first
-
   end
 
   def destroy

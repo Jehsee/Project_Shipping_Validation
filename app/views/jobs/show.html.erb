@@ -11,7 +11,7 @@
 
 <% if @job.assignment_status == "Unassigned" %>
   <%= form_for @job, url: "/assign_job/#{@job.id}", method: :put do |j| %>
-    
+
     <%= j.label "Boat Name" %>
 
     <%= j.collection_select(:boat_id, @boats, :id, :name) %>
