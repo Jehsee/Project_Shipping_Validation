@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<% if user_signed_in? %>
+  <nav id="main_nav">
+    <ul>
+      <li><%= profilesLink %></li>
+      <li><%= myProfileLink %></li>
+      <li><%= jobsLink %></li>
+      <li><%= logoutLink %></li>
+    </ul>
+  </nav>
+<% end %>
 
 
 <div id="main_div">

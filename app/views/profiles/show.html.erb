@@ -1,9 +1,10 @@
 <h1>Profile Page</h1>
 
+
 <%= link_to("Add Boat", new_boat_path, method: :get) %>
 
-<h3>List of registered boats for <%= @profile.id %></h3>
 <% if @profile.user.boats %>
+<h3>List of registered boats for <%= @profile.full_name %></h3>
   <ul>
     <% @profile.user.boats.each do |b| %>
       <li> <%= link_to("#{b.name}", boat_path(b.id), method: :get) %> </li>

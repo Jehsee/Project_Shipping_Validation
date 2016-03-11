@@ -6,6 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#destroy all tables
+User.destroy_all
+Profile.destroy_all
+Boat.destroy_all
+Job.destroy_all
+
+#seed users
+
 users = [
   ["a@a.com", "aaaaaaaa", "aaaaaaaa"],
   ["b@b.com", "bbbbbbbb", "bbbbbbbb"],
@@ -18,16 +26,20 @@ users.each do | a, b, c |
 end
 
 #seed profiles
+  
+x = User.first.id  
 
 profiles = [
-  [1, "Bob", "Dole", "bobbydole"],
-  [2, "Bill", "Clinton", "prez42"],
-  [3, "Al", "Gore", "manbearpig"],
-  [4, "Ralph", "Nader", "independentmofo"]
+  [x, "Bob", "Dole", "bobbydole"],
+  [x + 1, "Bill", "Clinton", "prez42"],
+  [x + 2, "Al", "Gore", "manbearpig"],
+  [x + 3, "Ralph", "Nader", "independentmofo"]
 ]
 
+
+
 profiles.each do | a, b, c, d |
-  Profile.create(user_id: a, fname: b, lname: c, username: d)
+  Profile.where(user_id: a).first.update(fname: b, lname: c, username: d)
 end
 
 #seed boats

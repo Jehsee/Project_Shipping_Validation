@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
     if !user_signed_in?
       redirect_to "/"
     end
+
+    @profiles = Profile.all
   end
 
   def create

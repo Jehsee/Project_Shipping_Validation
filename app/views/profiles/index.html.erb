@@ -1,1 +1,9 @@
-this is the profiles index page
+<h1>PROFILES:</h1>
+
+<ul>
+  <% @profiles.each do |p| %>
+
+    <li><%= link_to("#{p.username}'s Profile", profile_path(p.user.id), method: :get) %></li>
+
+  <% end %>
+</ul>
