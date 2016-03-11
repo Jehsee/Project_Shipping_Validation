@@ -6,14 +6,13 @@
 <% if @profile.user.boats %>
   <ul>
     <% @profile.user.boats.each do |b| %>
-      <li> <%= b.name %> </li>
-      <li> <%= b.capacity %> </li>
-      <li> <%= b.cur_loc %> </li>
+      <li> <%= link_to("#{b.name}", boat_path(b.id), method: :get) %> </li>
         <ol>
           <% b.jobs.each do |j| %>
             <li> <%= link_to("#{j.name}", job_path(j.id), method: :get) %> </li>
           <% end %>
         </ol>
     <% end %>
+
   </ul>
 <% end %>

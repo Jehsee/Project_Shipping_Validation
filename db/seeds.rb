@@ -51,9 +51,11 @@ end
 
 jobs = [
   ["Tractors from NY to LA", 150, "Tractors", "New York", 100000, "Los Angeles"],
-  ["Shoes from NY to LA", 75, "Shoes", "New York", 15000, "Los Angeles"]
+  ["Shoes from NY to LA", 75, "Shoes", "New York", 15000, "Los Angeles"],
+  ["Cars from Amsterdam to Lisbon", 150, "Cars", "Amsterdam", 30000, "Lisbon"]
 ]
 
 jobs.each do | a, b, c, d, e, f |
   Job.create(name: a, ctn_need: b, cargo: c, origin: d, cost: e, destination: f)
 end 
+
