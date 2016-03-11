@@ -4,7 +4,7 @@ module HomeHelper
   end
 
   def jobsLink
-    link_to("Jobs", jobs_link, method: :get)
+    link_to("Jobs", jobs_path, method: :get)
   end
 
   def logoutLink

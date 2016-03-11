@@ -62,15 +62,23 @@ class JobsController < ApplicationController
 
   def assign_job
     @job = Job.find(params[:id])
-    @job.update(boat_id: params[:job][:boat_id])
+    @boat = Boat.find(params[:job][:boat_id])
 
-    if @job.save
-      redirect_to job_path(@job.id)
-      flash[:info] = "Job Assigned Successfully"
+    if @job.ctn_need < @boat.capacity
+      @job.update(boat_id: @boat.id)
+      if @job.save
+        redirect_to job_path(@job.id)
+        flash[:info] = "Job Assigned Successfully"
+      else
+        render :show
+        flash[:info] = "There was an errod assigning the job."
+      end
     else
       render :show
-      flash[:info] = "There was an errod assigning the job."
+      flash[:info] = "#{@boat.name} does not have enough capacity."
     end
+
+
   end
 
   private
