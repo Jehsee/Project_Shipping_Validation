@@ -1,10 +1,21 @@
 <h1>Profile Page</h1>
 
+<%= image_tag @profile.avatar(:medium) %><br><br>
 
-<%= link_to("Add Boat", new_boat_path, method: :get) %>
+Username: <%= @profile.username %><br><br>
+First Name: <%= @profile.fname %><br><br>
+Last Name: <%= @profile.lname %><br><br>
 
+<%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get )%><br><br>
+
+<% if @profile.fname = nil || @profile.lname = nil || @profile.username = nil %>
+  <p>Please edit profile before adding boats</p>
+<% else %>
+  <%= link_to("Add Boat", new_boat_path, method: :get) %>
+<% end %>
+
+<h3>List of registered boats for <%= @profile.id %></h3>
 <% if @profile.user.boats %>
-<h3>List of registered boats for <%= @profile.full_name %></h3>
   <ul>
     <% @profile.user.boats.each do |b| %>
       <li> <%= link_to("#{b.name}", boat_path(b.id), method: :get) %> </li>
