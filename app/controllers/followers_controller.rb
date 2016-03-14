@@ -1,5 +1,16 @@
 class FollowersController < ApplicationController
 
+  def show
+    @boats = Follower.where(follower_id: current_user.id).pluck(:boat_id)
+
+    @names = []
+
+    @boats.each do |f|
+      @names << Boat.find(f).name
+    end
+    
+  end
+
   def create
 
     @following = Follower.new(follower_params)

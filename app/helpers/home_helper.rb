@@ -14,4 +14,8 @@ module HomeHelper
   def profilesLink
     link_to("All Profiles", profiles_path, method: :get)
   end
+
+  def newJobLink
+    link_to("New Job", new_job_path, method: :get)
+  end
 end

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :profile, dependent: :destroy
   has_many :boats, dependent: :destroy
+  has_many :followers
 
   # has_many :followers, dependent: :destroy
 

@@ -32,3 +32,9 @@ Last Name: <%= @profile.lname %><br><br>
 
   </ul>
 <% end %>
+
+<% if @profile.user_id == current_user.id %>
+
+  <h3><%= followersLink %></h3>
+
+<% end %>

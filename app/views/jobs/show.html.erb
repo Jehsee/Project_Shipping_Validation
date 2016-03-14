@@ -1,6 +1,6 @@
 <h1>JOB: <%= @job.name %></h1>
 
-<h2>COST: <%= @job.cost %></h2>
+<h2>COST: <%= number_to_currency(@job.cost) %></h2>
 
 <ul>
   <li>ORIGIN: <%= @job.origin %></li>

@@ -9,7 +9,7 @@ class Job < ActiveRecord::Base
 
   validates :ctn_need, numericality: {greater_than_or_equal_to: 1, message: "Containers Needed Must Be Greater Than 1"}
 
-  validates :ctn_need, numericality: { only_integer: true, message: "Containers Needed Must Be An Integer"}
+  validates :ctn_need, numericality: {only_integer: true, message: "Containers Needed Must Be An Integer"}
 
   validates :cargo, length: { minimum: 50, message: "Cargo Description Must Be At Least 50 Characters" }
 

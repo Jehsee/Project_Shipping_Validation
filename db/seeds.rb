@@ -63,9 +63,9 @@ end
 #jobs seed
 
 jobs = [
-  ["Tractors from NY to LA", 150, "Tractors", "New York", 100000, "Los Angeles"],
-  ["Shoes from NY to LA", 75, "Shoes", "New York", 15000, "Los Angeles"],
-  ["Cars from Amsterdam to Lisbon", 150, "Cars", "Amsterdam", 30000, "Lisbon"]
+  ["Tractors from NY to LA", 150, "Tractors. We got your John Deeres, your Caterpillars, and all those other brands you know and love.", "New York", 100000, "Los Angeles"],
+  ["Shoes from NY to LA", 75, "Shoes. OMG Shoes. Converse, Nike, Adidas, Jordans, you name it, we got it. Note: These may or may not be authentic.", "New York", 15000, "Los Angeles"],
+  ["Cars from Amsterdam to Lisbon", 150, "Cars.  We got your Beamers, your Benzes, your Audis, and every other german car your typical rich douche might drive.", "Amsterdam", 30000, "Lisbon"]
 ]
 
 jobs.each do | a, b, c, d, e, f |

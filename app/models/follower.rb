@@ -1,4 +1,5 @@
 class Follower < ActiveRecord::Base
 
-  has_many :users
+  belongs_to :boat
+  belongs_to :user
 end
