@@ -15,15 +15,7 @@ class ProfilesController < ApplicationController
       redirect_to "/"
     end
     @profile = Profile.find(params[:id])
-    @follower = Follower.new
-    @followers = Follower.where(followee_id: @profile.user_id)
-
-    @names = []
-
-    @followers.each do |f|
-      @names << Profile.where(user_id: f.follower_id).first.full_name
-    end
-    
+   
   end
 
   def destroy

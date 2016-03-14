@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160314155731) do
   add_index "boats", ["user_id"], name: "index_boats_on_user_id"
 
   create_table "followers", force: :cascade do |t|
-    t.integer  "followee_id"
+    t.integer  "boat_id"
     t.integer  "follower_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

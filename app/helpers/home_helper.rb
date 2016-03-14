@@ -1,6 +1,6 @@
 module HomeHelper
   def myProfileLink
-    link_to("#{current_user.profile.full_name}", profile_path(current_user.id), method: :get)
+    link_to("#{current_user.profile.full_name}", profile_path(current_user.profile.id), method: :get)
   end
 
   def jobsLink

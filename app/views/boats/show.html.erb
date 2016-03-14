@@ -1,7 +1,35 @@
 <h1> <%= @boat.name %>'s Specs </h1>
 
+<% if !@old_follower %>
+
+<%= form_for @new_follower, remote: true do |f| %>
+  <%= f.hidden_field :follower_id, value: current_user.id %>
+  <%= f.hidden_field :boat_id, value: @boat.id %>
+
+  <%= f.submit :create, value: "Follow #{@boat.name}" %>
+
+<% end %>
+
+<% else %>
+
+<%= link_to("Unfollow #{@boat.name}", follower_path(@old_follower.id), method: :delete, id: "unfollow") %>
+
+<% end %><br><br>
+
   <%= @boat.name %>
   <%= @boat.capacity %>
   <%= @boat.cur_loc %>
 
 <%= link_to("Back to Profile", profile_path(@boat.user.id), method: :get) %>
+
+<h3>Followers: </h3>
+
+<ol class="follower_list">
+
+  <% @names.each do |n| %>
+
+    <li><%= n %></li>
+
+  <% end %>
+
+</ol>

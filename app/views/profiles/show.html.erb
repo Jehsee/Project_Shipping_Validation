@@ -1,21 +1,5 @@
 <h1><%= @profile.full_name %>'s Profile</h1>
 
-<% if @profile.user_id != current_user.id %>
-
-
-
-  <%= form_for @follower, remote: true do |f| %>
-    <%= f.hidden_field :follower_id, value: current_user.id %>
-    <%= f.hidden_field :followee_id, value: @profile.user_id %>
-
-    <%= f.submit :create, value: "Follow #{@profile.full_name}" %>
-
-  <% end %>
-
-
-
-<% end %>
-
 <%= image_tag @profile.avatar(:medium) %><br><br>
 
 Username: <%= @profile.username %><br><br>
@@ -48,15 +32,3 @@ Last Name: <%= @profile.lname %><br><br>
 
   </ul>
 <% end %>
-
-<h3>Followers: </h3>
-
-<ol class="follower_list">
-
-  <% @names.each do |n| %>
-
-    <li><%= n %></li>
-
-  <% end %>
-
-</ol>

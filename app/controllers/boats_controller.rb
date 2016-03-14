@@ -5,18 +5,33 @@ class BoatsController < ApplicationController
     end
     @boats = Boat.all
   end
+
   def show
     if !user_signed_in?
       redirect_to "/"
     end
     @boat = Boat.find(params[:id])
+
+    @new_follower = Follower.new
+    @followers = Follower.where(boat_id: @boat.id)
+
+    @names = []
+
+    @followers.each do |f|
+      @names << Profile.where(user_id: f.follower_id).first.full_name
+    end
+    
+    @old_follower = Follower.where(follower_id: current_user.id, boat_id: @boat.id).first
+
   end
+
   def new
     if !user_signed_in?
       redirect_to "/"
     end
     @boat = Boat.new
   end
+
   def create
     @boat = Boat.new(boat_params)
     @boat.save
