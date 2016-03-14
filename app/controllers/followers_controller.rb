@@ -1,11 +1,13 @@
 class FollowersController < ApplicationController
 
   def create
+
     @following = Follower.new(follower_params)
     @following.save
 
     @follower = User.find(params[:follower][:follower_id])
     @followee = User.find(params[:follower][:followee_id])
+    @name = @follower.profile.full_name
 
     if @following.save
       flash[:info] = "You are now following #{@followee.profile.full_name}"
@@ -13,10 +15,19 @@ class FollowersController < ApplicationController
       flash[:info] = "There has been an error"
     end
 
-    redirect_to profile_path(@followee.profile.id)
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   def destroy
+
+    
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

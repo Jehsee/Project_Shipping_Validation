@@ -1,0 +1,5 @@
+$(".new_follower").on("ajax:complete", function(e){
+    $(e.currentTarget).hide() 
+  });
+
+$(".follower_list").append("<li><%= @name %></li>")

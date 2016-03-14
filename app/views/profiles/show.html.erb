@@ -2,13 +2,17 @@
 
 <% if @profile.user_id != current_user.id %>
 
-  <%= form_for @follower do |f| %>
+
+
+  <%= form_for @follower, remote: true do |f| %>
     <%= f.hidden_field :follower_id, value: current_user.id %>
     <%= f.hidden_field :followee_id, value: @profile.user_id %>
 
     <%= f.submit :create, value: "Follow #{@profile.full_name}" %>
 
   <% end %>
+
+
 
 <% end %>
 
@@ -47,12 +51,11 @@ Last Name: <%= @profile.lname %><br><br>
 
 <h3>Followers: </h3>
 
-<ol>
+<ol class="follower_list">
 
-  <% @followers.each do |f| %>
+  <% @names.each do |n| %>
 
-    <!-- Remove this model call when we figure out how to avoid it -->
-    <li><%= Profile.where(user_id: f.follower_id).first.full_name %></li>
+    <li><%= n %></li>
 
   <% end %>
 

@@ -11,6 +11,7 @@ User.destroy_all
 Profile.destroy_all
 Boat.destroy_all
 Job.destroy_all
+Follower.destroy_all
 
 #seed users
 
