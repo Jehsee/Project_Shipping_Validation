@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   has_many :boats, dependent: :destroy
 
+  has_many :followers, dependent: :destroy
 
   after_create do
     Profile.create(user_id: self.id)

@@ -45,14 +45,14 @@ end
 #seed boats
 
 boats = [
-  [1, "SS Titanic", 100, "Lisbon"],
-  [1, "SS Lusitania", 150, "London"],
-  [2, "SS Your Mom", 125, "Amsterdam"],
-  [2, "SS Lewinksy", 75, "New York"],
-  [3, "SS Super Serial", 200, "Los Angeles"],
-  [3, "SS Superhighway", 125, "New Orleans"],
-  [4, "SS Safe at Any Speed", 50, "Buenos Aires"],
-  [4, "SS Seatbelt", 225, "Dubai"]
+  [x, "SS Titanic", 100, "Lisbon"],
+  [x, "SS Lusitania", 150, "London"],
+  [x + 1, "SS Your Mom", 125, "Amsterdam"],
+  [x + 1, "SS Lewinksy", 75, "New York"],
+  [x + 2, "SS Super Serial", 200, "Los Angeles"],
+  [x + 2, "SS Superhighway", 125, "New Orleans"],
+  [x + 3, "SS Safe at Any Speed", 50, "Buenos Aires"],
+  [x + 3, "SS Seatbelt", 225, "Dubai"]
 ]
 
 boats.each do | a, b, c, d |

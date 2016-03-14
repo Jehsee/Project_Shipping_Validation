@@ -3,7 +3,7 @@
 <ul>
   <% @profiles.each do |p| %>
 
-    <li><%= link_to("#{p.username}'s Profile", profile_path(p.user.id), method: :get) %></li>
+    <li><%= link_to("#{p.username}'s Profile", profile_path(p.id), method: :get) %></li>
 
   <% end %>
 </ul>

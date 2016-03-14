@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :profiles
   resources :boats
   resources :jobs
+  resources :followers
 
   get "/assigned" => "jobs#assigned"
   get "/unassigned" => "jobs#unassigned"

@@ -14,7 +14,12 @@ class ProfilesController < ApplicationController
     if !user_signed_in?
       redirect_to "/"
     end
-    @profile = Profile.where(user_id: params[:id]).first
+    @profile = Profile.find(params[:id])
+    @follower = Follower.new
+    @followers = Follower.where(followee_id: @profile.user_id)
+
+    # Get list of follower names
+    
   end
 
   def destroy

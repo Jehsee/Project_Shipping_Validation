@@ -1,4 +1,16 @@
-<h1>Profile Page</h1>
+<h1><%= @profile.full_name %>'s Profile</h1>
+
+<% if @profile.user_id != current_user.id %>
+
+  <%= form_for @follower do |f| %>
+    <%= f.hidden_field :follower_id, value: current_user.id %>
+    <%= f.hidden_field :followee_id, value: @profile.user_id %>
+
+    <%= f.submit :create, value: "Follow #{@profile.full_name}" %>
+
+  <% end %>
+
+<% end %>
 
 <%= image_tag @profile.avatar(:medium) %><br><br>
 
@@ -6,15 +18,19 @@ Username: <%= @profile.username %><br><br>
 First Name: <%= @profile.fname %><br><br>
 Last Name: <%= @profile.lname %><br><br>
 
-<%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get )%><br><br>
+<% if @profile.user_id == current_user.id %>
 
-<% if @profile.fname = nil || @profile.lname = nil || @profile.username = nil %>
-  <p>Please edit profile before adding boats</p>
-<% else %>
-  <%= link_to("Add Boat", new_boat_path, method: :get) %>
+  <%= link_to("Edit Profile", edit_profile_path(@profile.id), method: :get )%><br><br>
+
+  <% if @profile.fname == nil || @profile.lname == nil || @profile.username == nil %>
+    <p>Please edit profile before adding boats</p>
+  <% else %>
+    <%= link_to("Add Boat", new_boat_path, method: :get) %>
+  <% end %>
+
 <% end %>
 
-<h3>List of registered boats for <%= @profile.id %></h3>
+<h3>List of registered boats for <%= @profile.full_name %></h3>
 <% if @profile.user.boats %>
   <ul>
     <% @profile.user.boats.each do |b| %>
@@ -28,3 +44,16 @@ Last Name: <%= @profile.lname %><br><br>
 
   </ul>
 <% end %>
+
+<h3>Followers: </h3>
+
+<ol>
+
+  <% @followers.each do |f| %>
+
+    <!-- Remove this model call when we figure out how to avoid it -->
+    <li><%= Profile.where(user_id: f.follower_id).first.full_name %></li>
+
+  <% end %>
+
+</ol>
