@@ -1,6 +1,6 @@
 <h1><%= @profile.full_name %>'s Profile</h1>
 
-<%= image_tag @profile.avatar(:medium) %><br><br>
+<%= image_tag @profile.avatar.url(:medium) %><br><br>
 
 Username: <%= @profile.username %><br><br>
 First Name: <%= @profile.fname %><br><br>

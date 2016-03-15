@@ -20,6 +20,8 @@
   <strong>Capacity:</strong> <%= @boat.capacity %><br>
   <strong>Location:</strong> <%= @boat.cur_loc %><br><br>
 
+  <%= image_tag @boat.avatar.url(:medium) %><br>
+
 <%= link_to("Back to Profile", profile_path(@boat.user.id), method: :get) %><br>
 
 <h3>Followers: </h3>
