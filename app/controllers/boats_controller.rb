@@ -49,6 +49,14 @@ class BoatsController < ApplicationController
     if !user_signed_in?
       redirect_to "/"
     end
+
+    @boat = Boat.find(params[:id])
+  end
+
+  def update
+    @boat.find(params[:id])
+    @boat.update(boat_params)
+    redirect_to boat_path(@boat.id)
   end
 
   def destroy
@@ -69,6 +77,6 @@ class BoatsController < ApplicationController
 
   private
   def boat_params
-    params.require(:boat).permit(:user_id, :name, :capacity, :cur_loc)
+    params.require(:boat).permit(:user_id, :name, :capacity, :cur_loc, :avatar)
   end
 end
